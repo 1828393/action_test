@@ -1,0 +1,15 @@
+name: helloworld
+on: push 
+jobs:
+   helloworld:
+    runs-on: ubuntu-latest
+    steps:
+    - name: check out repository code
+      uses: actions/checkout@v4
+    - run: echo"$(cat hello-world.txt)"
+    - name: use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
+    - run: npm install
+    - run: npm test
